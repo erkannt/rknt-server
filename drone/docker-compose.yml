@@ -21,3 +21,7 @@ services:
       - "traefik.http.routers.drone.entrypoints=websecure"
       - "traefik.http.routers.drone.tls.certresolver=myresolver"
     restart: unless-stopped
+
+networks:
+  traefik:
+    external: true
