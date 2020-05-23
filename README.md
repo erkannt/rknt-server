@@ -28,3 +28,4 @@ __Install Drone Exec Runner__
     User=drone
     Group=drone
     ```
+- set `rknt/rknt-server` repo to _trusted_ on https://drone.rknt.de
