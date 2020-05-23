@@ -1,7 +1,7 @@
 version: '3'
 
 services:
-  drone-server:
+  server:
     image: drone/drone:1
     volumes:
       - /var/volumes/drone:/data
@@ -22,7 +22,7 @@ services:
       - "traefik.http.routers.drone.tls.certresolver=myresolver"
     restart: unless-stopped
   
-  drone-runner:
+  runner:
     image: drone/drone-runner-docker:1
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
