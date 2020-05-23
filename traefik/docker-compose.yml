@@ -14,7 +14,6 @@ services:
       - "--certificatesresolvers.myresolver.acme.email=bofh@rknt.de"
       - "--certificatesresolvers.myresolver.acme.storage=/letsencrypt/acme.json"
       - "--accesslog=true"
-      - "--log.level=DEBUG"
     ports:
       - "80:80"
       - "443:443"
