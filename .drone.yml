@@ -1,0 +1,14 @@
+---
+  kind: pipeline
+  type: exec
+  name: default
+  
+  platform:
+    os: linux
+    arch: amd64
+  
+  steps:
+  - name: docker-compose up
+    commands:
+    - git-crypt unlock /home/drone/git-crypt-keyfile
+    - ./up-all.sh
