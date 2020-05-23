@@ -13,7 +13,7 @@ __Install Drone Exec Runner__
   - create config in `/home/drone/.drone-exec-runner/config`:
     ```
     DRONE_RPC_PROTO=https
-    DRONE_RPC_HOST=drone.rknt.org
+    DRONE_RPC_HOST=drone.rknt.de
     DRONE_RPC_SECRET=super-secret-sauce
     DRONE_HTTP_BIND=:3001
     DRONE_LOG_FILE=.drone-runner-exec/log.txt

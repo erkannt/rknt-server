@@ -8,7 +8,7 @@ services:
       - /var/volumes/website-bucket/rknt.de:/usr/share/nginx/html:ro
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.website.rule=Host(`rknt.duckdns.org`)"
+      - "traefik.http.routers.website.rule=Host(`rknt.de`)"
       - "traefik.http.routers.website.entrypoints=websecure"
       - "traefik.http.routers.website.tls.certresolver=myresolver"
     networks:
@@ -24,7 +24,7 @@ services:
       - MINIO_SECRET_KEY=${MINIO_SECRET_KEY}
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.minio-website.rule=Host(`website.minio.rknt.duckdns.org`)"
+      - "traefik.http.routers.minio-website.rule=Host(`website.minio.rknt.de`)"
       - "traefik.http.routers.minio-website.entrypoints=websecure"
       - "traefik.http.routers.minio-website.tls.certresolver=myresolver"
     networks:

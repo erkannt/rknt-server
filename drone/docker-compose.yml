@@ -11,7 +11,7 @@ services:
       - DRONE_GITLAB_CLIENT_SECRET=${DRONE_GITLAB_CLIENT_SECRET}
       - DRONE_RPC_SECRET=${DRONE_RPC_SECRET}
       - DRONE_DATABASE_SECRET=${DRONE_DATABASE_SECRET}
-      - DRONE_SERVER_HOST=drone.rknt.duckdns.org
+      - DRONE_SERVER_HOST=drone.rknt.de
       - DRONE_SERVER_PROTO=http
       - DRONE_USER_CREATE=username:rknt,admin:true
       - DRONE_USER_FILTER=rknt
@@ -19,7 +19,7 @@ services:
       - traefik
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.drone.rule=Host(`drone.rknt.duckdns.org`)"
+      - "traefik.http.routers.drone.rule=Host(`drone.rknt.de`)"
       - "traefik.http.services.drone.loadbalancer.server.port=80"
       - "traefik.http.routers.drone.entrypoints=websecure"
       - "traefik.http.routers.drone.tls.certresolver=myresolver"
@@ -31,7 +31,7 @@ services:
       - /var/run/docker.sock:/var/run/docker.sock
     environment:
       - DRONE_RPC_PROTO=https
-      - DRONE_RPC_HOST=drone.rknt.duckdns.org
+      - DRONE_RPC_HOST=drone.rknt.de
       - DRONE_RPC_SECRET=${DRONE_RPC_SECRET}
       - DRONE_RUNNER_CAPACITY=2
       - DRONE_RUNNER_NAME=rknt.de
