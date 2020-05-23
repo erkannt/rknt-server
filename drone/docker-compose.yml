@@ -12,6 +12,8 @@ services:
       - DRONE_RPC_SECRET=${DRONE_RPC_SECRET}
       - DRONE_SERVER_HOST=drone.rknt.duckdns.org
       - DRONE_SERVER_PROTO=http
+      - DRONE_USER_CREATE=username:rknt,admin:true
+      - DRONE_USER_FILTER=rknt
     networks:
       - traefik
     labels:
