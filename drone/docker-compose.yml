@@ -14,7 +14,7 @@ services:
       - DRONE_SERVER_PROTO=https
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.whoami.rule=Host(`drone.rknt.duckdns.org`)"
-      - "traefik.http.routers.whoami.entrypoints=websecure"
-      - "traefik.http.routers.whoami.tls.certresolver=myresolver"
+      - "traefik.http.routers.drone.rule=Host(`drone.rknt.duckdns.org`)"
+      - "traefik.http.routers.drone.entrypoints=websecure"
+      - "traefik.http.routers.drone.tls.certresolver=myresolver"
     restart: unless-stopped
