@@ -1,0 +1,36 @@
+version: "3.3"
+
+services:
+
+  website:
+    image: "nginx:alpine"
+    volumes:
+      - /var/volumes/website-bucket/rknt.de:/usr/share/nginx/html:ro
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.website.rule=Host(`rknt.duckdns.org`)"
+      - "traefik.http.routers.website.entrypoints=websecure"
+      - "traefik.http.routers.website.tls.certresolver=myresolver"
+    networks:
+      - traefik
+    restart: unless-stopped
+  
+  minio:
+    image: minio/minio
+    volumes:
+      - /var/volumes/website-bucket:/data
+    environment:
+      - MINIO_ACCESS_KEY=${MINIO_ACCESS_KEY}
+      - MINIO_SECRET_KEY=${MINIO_SECRET_KEY}
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.minio-website.rule=Host(`website.minio.rknt.duckdns.org`)"
+      - "traefik.http.routers.minio-website.entrypoints=websecure"
+      - "traefik.http.routers.minio-website.tls.certresolver=myresolver"
+    networks:
+      - traefik
+    restart: unless-stopped
+
+networks:
+  traefik:
+    external: true
