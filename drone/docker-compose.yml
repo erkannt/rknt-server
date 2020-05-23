@@ -1,0 +1,20 @@
+version: '3'
+
+services:
+  drone-server:
+    image: drone/drone:1
+    volumes:
+      - /var/volumes/drone:/data
+    environment: 
+      - DRONE_GITLAB_SERVER=https://gitlab.com
+      - DRONE_GITLAB_CLIENT_ID=${DRONE_GITLAB_CLIENT_ID}
+      - DRONE_GITLAB_CLIENT_SECRET=${DRONE_GITLAB_CLIENT_SECRET}
+      - DRONE_RPC_SECRET=${DRONE_RPC_SECRET}
+      - DRONE_SERVER_HOST=drone.rknt.duckdns.org
+      - DRONE_SERVER_PROTO=https
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.whoami.rule=Host(`drone.rknt.duckdns.org`)"
+      - "traefik.http.routers.whoami.entrypoints=websecure"
+      - "traefik.http.routers.whoami.tls.certresolver=myresolver"
+    restart: unless-stopped
