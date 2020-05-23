@@ -24,7 +24,7 @@ services:
       - MINIO_SECRET_KEY=${MINIO_SECRET_KEY}
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.minio-website.rule=Host(`website-minio.rknt.de`)"
+      - "traefik.http.routers.minio-website.rule=Host(`website.minio.rknt.de`)"
       - "traefik.http.routers.minio-website.entrypoints=websecure"
       - "traefik.http.routers.minio-website.tls.certresolver=myresolver"
     networks:
