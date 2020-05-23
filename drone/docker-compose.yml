@@ -11,7 +11,7 @@ services:
       - DRONE_GITLAB_CLIENT_SECRET=${DRONE_GITLAB_CLIENT_SECRET}
       - DRONE_RPC_SECRET=${DRONE_RPC_SECRET}
       - DRONE_SERVER_HOST=drone.rknt.duckdns.org
-      - DRONE_SERVER_PROTO=https
+      - DRONE_SERVER_PROTO=http
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.drone.rule=Host(`drone.rknt.duckdns.org`)"
