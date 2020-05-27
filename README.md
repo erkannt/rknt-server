@@ -1,3 +1,5 @@
+[![Build Status](https://drone.rknt.de/api/badges/rknt/rknt-server/status.svg)](https://drone.rknt.de/rknt/rknt-server)
+
 ## Bootstrapping
 
 - [install docker-engine](https://docs.docker.com/engine/install/debian/)
@@ -29,3 +31,8 @@ __Install Drone Exec Runner__
     Group=drone
     ```
 - set `rknt/rknt-server` repo to _trusted_ on https://drone.rknt.de
+
+## Notes on Nextcloud
+
+- needed to manually set `trusted_domain` in `config_php` as env setting didn't take hold
+- `'overwriteprotocol' => 'https'` needed in `config.php` to allow initial password reset
