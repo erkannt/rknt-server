@@ -3,7 +3,7 @@ version: "3.3"
 services:
 
   traefik:
-    image: "traefik:v2.2"
+    image: "traefik:v2.2@sha256:8945fdecf9d6534fd1093b67e11a31f717810b187a93696fd6f496e3fb3b053f"
     command:
       - "--providers.docker=true"
       - "--providers.docker.exposedbydefault=false"
@@ -29,7 +29,7 @@ services:
     restart: unless-stopped
 
   landingpage:
-    image: "nginx:1-alpine"
+    image: "nginx:1-alpine@sha256:630d39f3970740583f96ec6b26cc7b0f531c35a5c2068c551f02f5236b1e373f"
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.whoami.rule=Host(`rknt.de`)"
