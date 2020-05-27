@@ -29,7 +29,7 @@ services:
     restart: unless-stopped
 
   landingpage:
-    image: "nginx:alpine"
+    image: "nginx:1-alpine"
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.whoami.rule=Host(`rknt.de`)"

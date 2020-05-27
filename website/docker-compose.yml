@@ -3,7 +3,7 @@ version: "3.3"
 services:
 
   website:
-    image: "nginx:alpine"
+    image: "nginx:1-alpine"
     volumes:
       - /var/volumes/website-bucket/rknt.de:/usr/share/nginx/html:ro
     labels:
