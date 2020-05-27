@@ -1,0 +1,104 @@
+version: '3'
+
+services:
+  db:
+    image: mariadb
+    command: --transaction-isolation=READ-COMMITTED --binlog-format=ROW
+    volumes:
+      - /var/volumes/nextcloud/db:/var/lib/mysql
+    environment:
+      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
+      - MYSQL_PASSWORD=${MYSQL_PASSWORD}
+      - MYSQL_DATABASE=nextcloud
+      - MYSQL_USER=nextcloud
+    networks:
+      - nextcloud
+    restart: unless-stopped
+
+  redis:
+    image: redis:alpine
+    volumes:
+      - /var/volumes/nextcloud/redis:/data
+    networks:
+      - nextcloud
+    restart: unless-stopped
+
+  app:
+    image: nextcloud:fpm-alpine
+    volumes:
+      - /var/volumes/nextcloud/nextcloud:/var/www/html
+    environment:
+      - NEXTCLOUD_ADMIN_USER=admin
+      - NEXTCLOUD_ADMIN_PASSWORD=${NEXTCLOUD_ADMIN_PASSWORD}
+      - MYSQL_HOST=db
+      - MYSQL_PASSWORD=${MYSQL_PASSWORD}
+      - MYSQL_DATABASE=nextcloud
+      - MYSQL_USER=nextcloud
+      - REDIS_HOST=redis
+    depends_on:
+      - db
+      - redis
+    networks:
+      - nextcloud
+    restart: unless-stopped
+
+  web:
+    image: nginx:alpine
+    volumes:
+      - /var/volumes/nextcloud/nextcloud:/var/www/html:ro
+      - nginx.conf:/etc/nginx/nginx.conf:ro
+    depends_on:
+      - app
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.nextcloud.rule=Host(`nc.rknt.de`)"
+      - "traefik.http.routers.nextcloud.entrypoints=websecure"
+      - "traefik.http.routers.nextcloud.tls.certresolver=myresolver"
+    networks:
+      - traefik
+      - nextcloud
+    restart: unless-stopped
+
+  cron:
+    image: nextcloud:fpm-alpine
+    volumes:
+      - /var/volumes/nextcloud/nextcloud:/var/www/html
+    entrypoint: /cron.sh
+    depends_on:
+      - db
+      - redis
+    networks:
+      - nextcloud
+    restart: unless-stopped
+
+    db-backup:
+      image: mariadb
+      volumes:
+        - /var/volumes/nextcloud/database-dump:/dump
+        - /etc/localtime:/etc/localtime:ro
+      environment:
+        - MYSQL_PWD=${MYSQL_ROOT_PASSWORD}
+        - MYSQL_USER=root
+        - BACKUP_NUM_KEEP=7
+        - BACKUP_FREQUENCY=1d
+      entrypoint: |
+        bash -c 'bash -s <<EOF
+        trap "break;exit" SIGHUP SIGINT SIGTERM
+        sleep 2m
+        while /bin/true; do
+          mysqldump -h db --all-databases | gzip -c > /dump/dump_\`date +%d-%m-%Y"_"%H_%M_%S\`.sql.gz
+          (ls -t /dump/dump*.sql.gz|head -n $$BACKUP_NUM_KEEP;ls /dump/dump*.sql.gz)|sort|uniq -u|xargs rm -- {}
+          sleep $$BACKUP_FREQUENCY
+        done
+        EOF'
+      networks:
+        - nextcloud
+      depends_on:
+        - db
+      restart: unless-stopped
+
+networks:
+  traefik:
+    external: true
+  nextcloud:
+    internal: true
