@@ -2,7 +2,7 @@
   "extends": [
     "config:base",
     ":automergeAll",
-    ":prHourlyLimitNone",
+    ":prHourlyLimitNone"
   ],
   "packageRules": [
     {
