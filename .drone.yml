@@ -12,3 +12,6 @@
     commands:
     - git-crypt unlock /home/drone/git-crypt-keyfile
     - ./up-all.sh
+    when:
+      branch:
+      - master
