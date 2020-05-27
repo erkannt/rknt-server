@@ -3,7 +3,7 @@ version: "3.3"
 services:
 
   website:
-    image: "nginx:1-alpine"
+    image: "nginx:1-alpine@sha256:630d39f3970740583f96ec6b26cc7b0f531c35a5c2068c551f02f5236b1e373f"
     volumes:
       - /var/volumes/website-bucket/rknt.de:/usr/share/nginx/html:ro
     labels:
@@ -16,7 +16,7 @@ services:
     restart: unless-stopped
   
   minio:
-    image: minio/minio
+    image: minio/minio@sha256:a327ec83203c7abf8a70ce5f4bc28d198ed5d04eb0476da368f4047f0ec9b0d8
     volumes:
       - /var/volumes/website-bucket:/data
     environment:
