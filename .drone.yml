@@ -8,6 +8,9 @@
     arch: amd64
   
   steps:
+  - name: lint
+    commands:
+    - ./lint.sh
   - name: docker-compose up
     commands:
     - git-crypt unlock /home/drone/git-crypt-keyfile
