@@ -2,10 +2,10 @@
   "extends": [
     "config:base",
     ":automergeAll",
-    ":gitLabAutomerge",
     ":prHourlyLimitNone",
     "docker:pinDigests"
   ],
+  "gitLabAutomerge": true,
   "packageRules": [
     {
       "datasources": ["docker"],
