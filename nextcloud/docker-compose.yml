@@ -24,7 +24,7 @@ services:
     restart: unless-stopped
 
   app:
-    image: nextcloud:18-fpm-alpine@sha256:d067e6d11dbeb3cb5b35100a2a5cfcf953f9e3b891e69a3946c5a8daa70cf9b0
+    image: nextcloud:18-fpm-alpine@sha256:2bf87d6f78fb531b129f835839207e3e73d83e570be7d60f2cfc9d4bbeab4032
     volumes:
       - /var/volumes/nextcloud/nextcloud:/var/www/html
     environment:
