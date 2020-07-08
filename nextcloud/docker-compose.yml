@@ -2,7 +2,7 @@ version: '3'
 
 services:
   db:
-    image: mariadb:10@sha256:485d6b4741ace4cbcf4182c8bc3327b04556466e9390fe71847109e6b94a1f4f
+    image: mariadb:10@sha256:86e368b140a863112799c1f366fd04172733dc440353e9334007ea9f37a9b3db
     command: --transaction-isolation=READ-COMMITTED --binlog-format=ROW
     volumes:
       - /var/volumes/nextcloud/db:/var/lib/mysql
@@ -24,7 +24,7 @@ services:
     restart: unless-stopped
 
   app:
-    image: nextcloud:18-fpm-alpine@sha256:d067e6d11dbeb3cb5b35100a2a5cfcf953f9e3b891e69a3946c5a8daa70cf9b0
+    image: nextcloud:18-fpm-alpine@sha256:2bf87d6f78fb531b129f835839207e3e73d83e570be7d60f2cfc9d4bbeab4032
     volumes:
       - /var/volumes/nextcloud/nextcloud:/var/www/html
     environment:
@@ -63,7 +63,7 @@ services:
     restart: unless-stopped
 
   cron:
-    image: nextcloud:fpm-alpine@sha256:98a07d252b330e2b7d1ad5079b22ab3bf04cee5adef9fb51ccdeeb7e229cb814
+    image: nextcloud:fpm-alpine@sha256:29c7725063a6bb3a535dc8c15ee7e9663299a7c657afcad0ff974446bc3e30d6
     volumes:
       - /var/volumes/nextcloud/nextcloud:/var/www/html
     entrypoint: /cron.sh
@@ -75,7 +75,7 @@ services:
     restart: unless-stopped
 
   db-backup:
-    image: mariadb:10@sha256:485d6b4741ace4cbcf4182c8bc3327b04556466e9390fe71847109e6b94a1f4f
+    image: mariadb:10@sha256:86e368b140a863112799c1f366fd04172733dc440353e9334007ea9f37a9b3db
     volumes:
       - /var/volumes/nextcloud/database-dump:/dump
       - /etc/localtime:/etc/localtime:ro
