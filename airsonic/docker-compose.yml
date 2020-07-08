@@ -16,9 +16,9 @@ services:
     labels:
       - "traefik.enable=true"
       - "traefik.docker.network=traefik"
-      - "traefik.http.routers.nextcloud.rule=Host(`sonic.rknt.de`)"
-      - "traefik.http.routers.nextcloud.entrypoints=websecure"
-      - "traefik.http.routers.nextcloud.tls.certresolver=myresolver"
+      - "traefik.http.routers.sonic.rule=Host(`sonic.rknt.de`)"
+      - "traefik.http.routers.sonic.entrypoints=websecure"
+      - "traefik.http.routers.sonic.tls.certresolver=myresolver"
     networks:
       - traefik
     restart: unless-stopped
