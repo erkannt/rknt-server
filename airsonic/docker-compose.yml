@@ -1,0 +1,28 @@
+version: '3'
+
+services:
+  airsonic:
+    image: linuxserver/airsonic
+    container_name: airsonic
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/London
+    volumes:
+      - /var/volumes/airsonic/config:/config
+      - /var/volumes/airsonic/music:/music
+      - /var/volumes/airsonic/playlists:/playlists
+      - /var/volumes/airsonic/podcasts:/podcasts
+    labels:
+      - "traefik.enable=true"
+      - "traefik.docker.network=traefik"
+      - "traefik.http.routers.nextcloud.rule=Host(`sonic.rknt.de`)"
+      - "traefik.http.routers.nextcloud.entrypoints=websecure"
+      - "traefik.http.routers.nextcloud.tls.certresolver=myresolver"
+    networks:
+      - traefik
+    restart: unless-stopped
+
+networks:
+  traefik:
+    external: true
