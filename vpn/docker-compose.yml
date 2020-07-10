@@ -1,7 +1,7 @@
 version: "3"
 services:
   openvpn:
-    image: linuxserver/openvpn-as
+    image: linuxserver/openvpn-as@sha256:df74516978079a41823f6bea03873e5e342e0faa1a4b3f602dddc2c5ef7ee774
     container_name: openvpn-as
     cap_add:
       - NET_ADMIN
