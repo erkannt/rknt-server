@@ -9,6 +9,7 @@ services:
       - PUID=1000
       - PGID=1000
       - TZ=Europe/London
+      - INTERFACE=eth0
     volumes:
       - /var/volumes/openvpn/config:/config
     ports:
