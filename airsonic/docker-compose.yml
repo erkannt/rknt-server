@@ -2,7 +2,7 @@ version: '3'
 
 services:
   airsonic:
-    image: linuxserver/airsonic@sha256:3181e4e309979209aebcd9bde77e815f220f04e35b3682863aa425fd50e563cd
+    image: linuxserver/airsonic@sha256:283d7a7ab7313741bdaae572fa30e6cf2c3ee57c91fa166f7d7f7b743a385caa
     container_name: airsonic
     environment:
       - PUID=1000
