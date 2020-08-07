@@ -63,7 +63,7 @@ services:
     restart: unless-stopped
 
   cron:
-    image: nextcloud:fpm-alpine@sha256:92365a2d88b18908993bfa13aa1c0c6015cae579d70b893c912a53b1ce922ebf
+    image: nextcloud:fpm-alpine@sha256:9136aac320c3962ea0dd701c01a51b5a344edcc7ff754bb3cd01521643e674f4
     volumes:
       - /var/volumes/nextcloud/nextcloud:/var/www/html
     entrypoint: /cron.sh
