@@ -20,6 +20,7 @@
     - git-crypt unlock /home/drone/git-crypt-keyfile
     - ./up-all.sh
     - docker image prune -f
+    - garbage_collect.sh
     when:
       branch:
       - master
