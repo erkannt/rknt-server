@@ -18,9 +18,9 @@
   - name: docker-compose up
     commands:
     - git-crypt unlock /home/drone/git-crypt-keyfile
+    - ./garbage_collect.sh
     - ./up-all.sh
     - docker image prune -f
-    - garbage_collect.sh
     when:
       branch:
       - master
