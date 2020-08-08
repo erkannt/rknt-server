@@ -12,12 +12,10 @@ done
 running_containers=$(docker ps --format '{{.Names}}')
 
 for container in ${running_containers}; do
-    case "${container}" in *${defined_containers})
+    if echo ${defined_containers} | grep --quiet ${container}; then
         echo ${container} "is defined"
-        ;;
-        *)
+    else
         echo ${container} "not defined -- deleting"
         docker kill ${container}
-        ;;
-    esac
+    fi
 done
