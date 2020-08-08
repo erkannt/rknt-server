@@ -4,6 +4,7 @@
 
 - [install docker-engine](https://docs.docker.com/engine/install/debian/)
 - [install docker-compose](https://docs.docker.com/compose/install/)
+- [install yq](https://github.com/mikefarah/yq) (used for garbage collection)
 - `git-crypt unlock`
 - `docker network create traefik`
 
