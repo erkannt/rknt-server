@@ -1,0 +1,24 @@
+version: '3'
+
+services:
+  app:
+    image: linuxserver/calibre-web
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/London
+    volumes:
+      - /var/volumes/calibre-web:/config
+      - /var/volumes/nextcloud/nextcloud/data/dhaarhoff/files/calibre-library:/books:ro
+    networks:
+      - traefik
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.calibre-web.rule=Host(`books.rknt.de`)"
+      - "traefik.http.routers.calibre-web.entrypoints=websecure"
+      - "traefik.http.routers.calibre-web.tls.certresolver=myresolver"
+    restart: unless-stopped
+
+networks:
+  traefik:
+    external: true
