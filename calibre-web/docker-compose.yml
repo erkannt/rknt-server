@@ -4,8 +4,6 @@ services:
   app:
     image: linuxserver/calibre-web
     environment:
-      - PUID=1000
-      - PGID=1000
       - TZ=Europe/London
     volumes:
       - /var/volumes/calibre-web:/config
