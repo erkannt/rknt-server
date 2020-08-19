@@ -1,0 +1,25 @@
+version: '3'
+
+services:
+  server:
+    image: linuxserver/duplicati
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/London
+    volumes:
+      - /var/volumes/duplicati/config:/config
+      - /var/volumes/duplicati/backups:/backups
+      - /var/volumes:/source:ro
+    networks:
+      - traefik
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.duplicati.rule=Host(`duplicati.rknt.de`)"
+      - "traefik.http.routers.duplicati.entrypoints=websecure"
+      - "traefik.http.routers.duplicati.tls.certresolver=myresolver"
+    restart: unless-stopped
+
+networks:
+  traefik:
+    external: true
