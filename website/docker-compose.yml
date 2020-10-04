@@ -14,6 +14,19 @@ services:
     networks:
       - traefik
     restart: unless-stopped
+
+  python-exercises:
+    image: "nginx:1-alpine@sha256:4635b632d2aaf8c37c8a1cf76a1f96d11b899f74caa2c6946ea56d0a5af02c0c"
+    volumes:
+      - /var/volumes/website-bucket/python-exercises:/usr/share/nginx/html:ro
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.python-exercises.rule=Host(`python-exercises.rknt.de`)"
+      - "traefik.http.routers.python-exercises.entrypoints=websecure"
+      - "traefik.http.routers.python-exercises.tls.certresolver=myresolver"
+    networks:
+      - traefik
+    restart: unless-stopped
   
   minio:
     image: minio/minio@sha256:01c370d148a0ef3b88620825bf94bd0224818e3f948b1fa90e4b952cc6c022b7
