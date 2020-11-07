@@ -27,7 +27,20 @@ services:
     networks:
       - traefik
     restart: unless-stopped
-  
+
+  freunde-preview:
+    image: "nginx:1-alpine@sha256:4635b632d2aaf8c37c8a1cf76a1f96d11b899f74caa2c6946ea56d0a5af02c0c"
+    volumes:
+      - /var/volumes/website-bucket/freunde-preview:/usr/share/nginx/html:ro
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.freunde-preview.rule=Host(`freunde-preview.rknt.de`)"
+      - "traefik.http.routers.freunde-preview.entrypoints=websecure"
+      - "traefik.http.routers.freunde-preview.tls.certresolver=myresolver"
+    networks:
+      - traefik
+    restart: unless-stopped
+
   minio:
     image: minio/minio@sha256:556b51c1c835b0f6b1026a136f4ee5d21e9f1659c20591c856ed2e6d701b8d7f
     volumes:
