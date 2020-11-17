@@ -26,7 +26,7 @@ services:
     restart: unless-stopped
   
   runner:
-    image: drone/drone-runner-docker:1@sha256:126d237838f06b25f05d719d734b80b3b6126154359d1cc50ad4fbc9b691a9b7
+    image: drone/drone-runner-docker:1@sha256:93d165dd676fa764e594463cf1752453fdaeb213eb675c09fd6bd6d37a7973b9
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
     environment:
