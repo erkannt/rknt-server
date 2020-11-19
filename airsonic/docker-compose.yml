@@ -2,7 +2,7 @@ version: '3'
 
 services:
   airsonic:
-    image: linuxserver/airsonic@sha256:bb2559de0b070ecf0b378426ea21a361f25ccb33085ac80503bb4c7f6ca6cb62
+    image: linuxserver/airsonic@sha256:213d45f1d68870df1d6b8a5f267b02e61c502de4a0acfccc43eb1710f50aa372
     environment:
       - PUID=1000
       - PGID=1000
