@@ -2,7 +2,7 @@ version: '3'
 
 services:
   server:
-    image: linuxserver/duplicati@sha256:5a44c751099576f76f2e77b8c60c97378d9420f4930a1380adeb15e2fb283b10
+    image: linuxserver/duplicati@sha256:8c0abf7c2a4b47445ff5dd9727d096387d9194384cba8f9449e2f90966895de5
     environment:
       - PUID=1000
       - PGID=1000
