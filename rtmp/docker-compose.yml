@@ -1,0 +1,10 @@
+version: '3'
+
+services:
+  app:
+    image: tiangolo/nginx-rtmp@sha256:6d96bf445cb73f52710e6e96173d3d776f45c50cb07e7c0fc676abaaeb42637c
+    ports:
+      - 1935:1935
+    environment:
+      - TZ=Europe/London
+    restart: unless-stopped
