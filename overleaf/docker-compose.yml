@@ -71,7 +71,7 @@ services:
         expose:
             - 27017
         volumes:
-            - ~/mongo_data:/data/db
+            - /var/volumes/mongo_data:/data/db
         networks:
             - overleaf
         healthcheck:
@@ -86,7 +86,7 @@ services:
         expose:
             - 6379
         volumes:
-            - ~/redis_data:/data
+            - /var/volumes/redis_data:/data
         networks:
             - overleaf
 
