@@ -1,18 +1,17 @@
-version: '2.2'
+version: '3'
 services:
     sharelatex:
         image: sharelatex/sharelatex
-        container_name: sharelatex
         depends_on:
             mongo:
                 condition: service_healthy
             redis:
                 condition: service_started
-        links:
-            - mongo
-            - redis
         volumes:
             - /var/volumes/overleaf:/var/lib/sharelatex
+        networks:
+            - traefik
+            - overleaf
         environment:
 
             SHARELATEX_APP_NAME: Overleaf Community Edition
@@ -60,8 +59,6 @@ services:
             # SHARELATEX_EMAIL_SMTP_TLS_REJECT_UNAUTH: true
             # SHARELATEX_EMAIL_SMTP_IGNORE_TLS: false
             # SHARELATEX_CUSTOM_EMAIL_FOOTER: "This system is run by department x"
-        networks:
-        - traefik
         labels:
         - "traefik.enable=true"
         - "traefik.http.routers.overleaf.rule=Host(`latex.rknt.de`)"
@@ -72,11 +69,12 @@ services:
     mongo:
         restart: always
         image: mongo:4.0
-        container_name: mongo
         expose:
             - 27017
         volumes:
             - ~/mongo_data:/data/db
+        networks:
+            - overleaf
         healthcheck:
             test: echo 'db.stats().ok' | mongo localhost:27017/test --quiet
             interval: 10s
@@ -86,12 +84,15 @@ services:
     redis:
         restart: always
         image: redis:5
-        container_name: redis
         expose:
             - 6379
         volumes:
             - ~/redis_data:/data
+        networks:
+            - overleaf
 
 networks:
   traefik:
     external: true
+  overleaf:
+    internal: true
