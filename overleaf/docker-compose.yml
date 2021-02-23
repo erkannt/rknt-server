@@ -2,11 +2,6 @@ version: '3'
 services:
     sharelatex:
         image: sharelatex/sharelatex
-        depends_on:
-            mongo:
-                condition: service_healthy
-            redis:
-                condition: service_started
         volumes:
             - /var/volumes/overleaf:/var/lib/sharelatex
         networks:
@@ -64,6 +59,9 @@ services:
         - "traefik.http.routers.overleaf.rule=Host(`latex.rknt.de`)"
         - "traefik.http.routers.overleaf.entrypoints=websecure"
         - "traefik.http.routers.overleaf.tls.certresolver=myresolver"
+        depends_on:
+        - mongo
+        - redis
         restart: unless-stopped
 
     mongo:
