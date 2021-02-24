@@ -48,11 +48,11 @@ services:
 
             SHARELATEX_EMAIL_SMTP_HOST: smtp.gmail.com
             SHARELATEX_EMAIL_SMTP_PORT: 587
-            SHARELATEX_EMAIL_SMTP_SECURE: true
+            SHARELATEX_EMAIL_SMTP_SECURE: "true"
             SHARELATEX_EMAIL_SMTP_USER: ${EMAIL_USER}
             SHARELATEX_EMAIL_SMTP_PASS: ${EMAIL_PASSWORD}
-            SHARELATEX_EMAIL_SMTP_TLS_REJECT_UNAUTH: true
-            SHARELATEX_EMAIL_SMTP_IGNORE_TLS: false
+            SHARELATEX_EMAIL_SMTP_TLS_REJECT_UNAUTH: "true"
+            SHARELATEX_EMAIL_SMTP_IGNORE_TLS: "false"
             SHARELATEX_CUSTOM_EMAIL_FOOTER: "This system is run by rknt"
         labels:
         - "traefik.enable=true"
