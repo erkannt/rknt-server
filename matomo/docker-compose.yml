@@ -18,6 +18,8 @@ services:
   app:
     image: matomo:fpm-alpine
     restart: unless-stopped
+    depends_on:
+      - db
     volumes:
       #      - ./config:/var/www/html/config:rw
       #      - ./logs:/var/www/html/logs
@@ -33,8 +35,10 @@ services:
       - matomo
 
   web:
-    image: nginx:alpine@sha256:a499d495248cee0924c6c29063c01236f13463910773530456582ad0792bc85e
+    image: nginx:alpine@sha256:480395b7be07df06368c93469df41343c1e6285f5b37d387b5a17f2e8708a2a3
     restart: unless-stopped
+    depends_on:
+      - app
     volumes:
       - /var/volumes/matomo/app:/var/www/html:ro
       # see https://github.com/matomo-org/matomo-nginx
