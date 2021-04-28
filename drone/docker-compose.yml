@@ -6,15 +6,14 @@ services:
     volumes:
       - /var/volumes/drone:/data
     environment: 
-      - DRONE_GITLAB_SERVER=https://gitlab.com
-      - DRONE_GITLAB_CLIENT_ID=${DRONE_GITLAB_CLIENT_ID}
-      - DRONE_GITLAB_CLIENT_SECRET=${DRONE_GITLAB_CLIENT_SECRET}
+      - DRONE_GITHUB_CLIENT_ID=${DRONE_GITHUB_CLIENT_ID}
+      - DRONE_GITHUB_CLIENT_SECRET=${DRONE_GITHUB_CLIENT_SECRET}
       - DRONE_RPC_SECRET=${DRONE_RPC_SECRET}
       - DRONE_DATABASE_SECRET=${DRONE_DATABASE_SECRET}
       - DRONE_SERVER_HOST=drone.rknt.de
       - DRONE_SERVER_PROTO=http
-      - DRONE_USER_CREATE=username:rknt,admin:true
-      - DRONE_USER_FILTER=rknt
+      - DRONE_USER_CREATE=username:erkannt,admin:true
+      - DRONE_USER_FILTER=erkannt
     networks:
       - traefik
     labels:
