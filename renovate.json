@@ -5,7 +5,6 @@
     ":prHourlyLimitNone",
     "docker:pinDigests"
   ],
-  "gitLabAutomerge": true,
   "packageRules": [
     {
       "datasources": ["docker"],
