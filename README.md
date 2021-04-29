@@ -37,3 +37,8 @@ __Install Drone Exec Runner__
 
 - needed to manually set `trusted_domain` in `config_php` as env setting didn't take hold
 - `'overwriteprotocol' => 'https'` needed in `config.php` to allow initial password reset
+
+## Notes on Github/Gitlab integration
+
+- `DRONE_SERVER_PROTO` is set to `http` as traefik terminates SSL for us.
+   This means you have to manually tweak the webhook settings in Github/Gitlab to use an `https` address.
