@@ -16,7 +16,7 @@ services:
     restart: unless-stopped
 
   redis:
-    image: redis:6-alpine@sha256:a6812012fdaba1376104e41ea41ebe0f1a50705c02ee45f9cf483ca835e3a101
+    image: redis:6-alpine@sha256:f9577ac6e68c70b518e691406f2bebee49d8db22118fc87bad3b39c16a1cb46e
     volumes:
       - /var/volumes/nextcloud/redis:/data
     networks:
