@@ -28,14 +28,6 @@ services:
       - "/var/run/docker.sock:/var/run/docker.sock:ro"
     restart: unless-stopped
 
-  landingpage:
-    image: "nginx:1-alpine@sha256:07ab71a2c8e4ecb19a5a5abcfb3a4f175946c001c8af288b1aa766d67b0d05d2"
-    labels:
-      - "traefik.enable=true"
-      - "traefik.http.routers.whoami.rule=Host(`rknt.de`)"
-      - "traefik.http.routers.whoami.entrypoints=websecure"
-      - "traefik.http.routers.whoami.tls.certresolver=myresolver"
-
 networks:
   traefik:
     external: true
