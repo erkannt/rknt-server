@@ -19,14 +19,9 @@ services:
     image: redis:6-alpine@sha256:f8f0e809a4281714c33edf86f6da6cc2d4058c8549e44d8c83303c28b3123072
     volumes:
       - /var/volumes/nextcloud/redis:/data
-    environment:
-      - REDIS_HOST_PASSWORD=${NEXTCLOUD_REDIS_PASSWORD}
     networks:
       - nextcloud
-    command:
-      - sh
-      - -c
-      - 'exec redis-server --requirepass "$$NEXTCLOUD_REDIS_PASSWORD"'
+    command: redis-server --requirepass ${NEXTCLOUD_REDIS_PASSWORD}
     restart: unless-stopped
 
   nextcloud:
