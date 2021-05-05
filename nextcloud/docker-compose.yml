@@ -16,7 +16,7 @@ services:
     restart: unless-stopped
 
   redis:
-    image: bitnami/redis:6.2
+    image: bitnami/redis:6.2@sha256:9de3e009f0638387fa0557530cef6d0b3ecda68fd1e481867036d5d836043ae5
     volumes:
       - /var/volumes/nextcloud/redis:/bitnami/redis/data
     environment:
@@ -26,7 +26,7 @@ services:
     restart: unless-stopped
 
   nextcloud:
-    image: nextcloud:19-fpm-alpine
+    image: nextcloud:19-fpm-alpine@sha256:b25f1b7f9f8f3dfafd0583a6c8686f93aad935e5440e2ce21a84951c8db1e70d
     volumes:
       - /var/volumes/nextcloud/nextcloud:/var/www/html
     environment:
@@ -66,7 +66,7 @@ services:
     restart: unless-stopped
 
   cron:
-    image: nextcloud:19-fpm-alpine
+    image: nextcloud:19-fpm-alpine@sha256:b25f1b7f9f8f3dfafd0583a6c8686f93aad935e5440e2ce21a84951c8db1e70d
     volumes:
       - /var/volumes/nextcloud/nextcloud:/var/www/html
     entrypoint: /cron.sh
