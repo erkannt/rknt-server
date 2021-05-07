@@ -26,7 +26,7 @@ services:
     restart: unless-stopped
 
   nextcloud:
-    image: nextcloud:21-fpm-alpine@sha256:f69b4f0fee0445155b3c841655284ef22b868ce3621d26ddab585a4134667717
+    image: nextcloud:21-fpm-alpine@sha256:e1d1278af1ab4a04d527dc54ff1c4c98bdee14a869ff07a1641bad22a9ce89ef
     volumes:
       - /var/volumes/nextcloud/nextcloud:/var/www/html
       - ./php-fpm.nextcloud.conf:/usr/local/etc/php-fpm.d/nextcloud.conf:ro
@@ -67,7 +67,7 @@ services:
     restart: unless-stopped
 
   cron:
-    image: nextcloud:21-fpm-alpine@sha256:f69b4f0fee0445155b3c841655284ef22b868ce3621d26ddab585a4134667717
+    image: nextcloud:21-fpm-alpine@sha256:e1d1278af1ab4a04d527dc54ff1c4c98bdee14a869ff07a1641bad22a9ce89ef
     volumes:
       - /var/volumes/nextcloud/nextcloud:/var/www/html
     entrypoint: /cron.sh
