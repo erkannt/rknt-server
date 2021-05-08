@@ -5,7 +5,8 @@ services:
   nginx:
     image: "f0rc3/gokapi"
     volumes:
-      - /var/volumes/gokapi:/data
+      - /var/volumes/gokapi/data:/app/data
+      - /var/volumes/gokapi/conf:/app/config
     environment:
       - GOKAPI_USERNAME=rknt
       - GOKAPI_PASSWORD=${GOKAPI_PASSWORD}
