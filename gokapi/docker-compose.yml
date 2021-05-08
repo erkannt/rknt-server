@@ -17,7 +17,7 @@ services:
       - "traefik.enable=true"
       - "traefik.http.routers.gokapi.rule=Host(`sharing.rknt.de`)"
       - "traefik.http.routers.gokapi.entrypoints=websecure"
-      - "traefik.http.routers.gokapi.certresolver=myresolver"
+      - "traefik.http.routers.gokapi.tls.certresolver=myresolver"
     networks:
       - traefik
     restart: unless-stopped
