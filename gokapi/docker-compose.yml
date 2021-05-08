@@ -1,0 +1,27 @@
+version: '3'
+
+services:
+
+  nginx:
+    image: "f0rc3/gokapi"
+    volumes:
+      - /var/volumes/gokapi:/data
+    environment:
+      - GOKAPI_USERNAME=rknt
+      - GOKAPI_PASSWORD=${GOKAPI_PASSWORD}
+      - GOKAPI_EXTERNAL_URL=sharing.rknt.de
+      - GOKAPI_REDIRECT_URL=rknt.de
+      - GOKAPI_SALT_ADMIN=${GOKAPI_SALT_ADMIN}
+      - GOKAPI_SALT_FILES=${GOKAPI_SALT_FILES}
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.gokapi.rule=Host(`sharing.rknt.de`)"
+      - "traefik.http.routers.gokapi.entrypoints=websecure"
+      - "traefik.http.routers.gokapi.certresolver=myresolver"
+    networks:
+      - traefik
+    restart: unless-stopped
+  
+networks:
+  traefik:
+    external: true
