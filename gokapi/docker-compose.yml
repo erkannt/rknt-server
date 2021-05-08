@@ -9,8 +9,8 @@ services:
     environment:
       - GOKAPI_USERNAME=rknt
       - GOKAPI_PASSWORD=${GOKAPI_PASSWORD}
-      - GOKAPI_EXTERNAL_URL=sharing.rknt.de
-      - GOKAPI_REDIRECT_URL=rknt.de
+      - GOKAPI_EXTERNAL_URL=https://sharing.rknt.de
+      - GOKAPI_REDIRECT_URL=https://rknt.de
       - GOKAPI_SALT_ADMIN=${GOKAPI_SALT_ADMIN}
       - GOKAPI_SALT_FILES=${GOKAPI_SALT_FILES}
     labels:
