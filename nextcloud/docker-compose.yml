@@ -2,7 +2,7 @@ version: '3'
 
 services:
   db:
-    image: mariadb:10@sha256:36288c675a192bd0a8a99cd6ba0780e31df85f0bfd0cbb204837cd108be3d236
+    image: mariadb:10@sha256:018ee5055ef34fd95dae490266da232cd527625704c6badf84006b36f49ad265
     command: --transaction-isolation=READ-COMMITTED --binlog-format=ROW
     volumes:
       - /var/volumes/nextcloud/db:/var/lib/mysql
@@ -79,7 +79,7 @@ services:
     restart: unless-stopped
 
   db-backup:
-    image: mariadb:10@sha256:36288c675a192bd0a8a99cd6ba0780e31df85f0bfd0cbb204837cd108be3d236
+    image: mariadb:10@sha256:018ee5055ef34fd95dae490266da232cd527625704c6badf84006b36f49ad265
     volumes:
       - /var/volumes/nextcloud/database-dump:/dump
       - /etc/localtime:/etc/localtime:ro
