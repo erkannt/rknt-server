@@ -16,7 +16,7 @@ services:
     restart: unless-stopped
 
   redis:
-    image: bitnami/redis:6.2@sha256:15e5e86616bf923bf483867a20efb7823dfaea4bda1e4411e4b01a09434e5cc0
+    image: bitnami/redis:6.2@sha256:fc5f2835fdb72558f4629c0bd7dbb17cffe6874649d42f6535b5557cd71e12e1
     volumes:
       - /var/volumes/nextcloud/redis:/bitnami/redis/data
     environment:
