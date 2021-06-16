@@ -49,7 +49,7 @@ services:
     restart: unless-stopped
 
   web:
-    image: nginx:1-alpine@sha256:0f8595aa040ec107821e0409a1dd3f7a5e989501d5c8d5b5ca1f955f33ac81a0
+    image: nginx:1-alpine@sha256:ee666987e353081b53c4fc44ae1e6484ced6303cd70909bb6f1ceeca5a3f9ab4
     volumes:
       - /var/volumes/nextcloud/nextcloud:/var/www/html:ro
       - ./nginx.conf:/etc/nginx/nginx.conf:ro
