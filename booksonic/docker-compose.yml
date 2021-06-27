@@ -2,7 +2,7 @@
 version: "2.1"
 services:
   booksonic:
-    image: ghcr.io/linuxserver/booksonic
+    image: ghcr.io/linuxserver/booksonic@sha256:13c68aaae8790594161c130f09da2220a032ede3aa37d8d46d85d6594d6ad54c
     container_name: booksonic
     environment:
       - PUID=1000
