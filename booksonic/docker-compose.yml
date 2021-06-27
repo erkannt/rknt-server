@@ -8,7 +8,6 @@ services:
       - PUID=1000
       - PGID=1000
       - TZ=Europe/London
-      - CONTEXT_PATH=url-base
     volumes:
       - /var/volumes/booksonic/config:/config
       - /var/volumes/airsonic/music:/audiobooks
