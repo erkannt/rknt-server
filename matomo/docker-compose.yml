@@ -16,7 +16,7 @@ services:
       - matomo
 
   matomo:
-    image: matomo:fpm-alpine@sha256:66b6811ef8c685d2253b5c17bcd17bf5f081a18e2358c873b8c706f9c3d58459
+    image: matomo:fpm-alpine@sha256:58bd3f70a12adb5fefe381fac071cb534113901115b01d926c5db093eda353d9
     restart: unless-stopped
     depends_on:
       - db
