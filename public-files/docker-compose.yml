@@ -2,7 +2,7 @@ version: '3'
 
 services:
 
-  nginx:
+  miniserve:
     image: svenstaro/miniserve
     command: /public
     volumes:
