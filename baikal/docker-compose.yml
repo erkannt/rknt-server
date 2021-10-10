@@ -1,0 +1,21 @@
+version: '3'
+
+services:
+
+  baikal:
+    image: ckulka/baikal:nginx
+    volumes:
+      - /var/volumes/baikal/config:/var/www/baikal/config
+      - /var/volumes/baikal/data:/var/www/baikal/Specific
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.baikal.rule=Host(`baikal.rknt.de`)"
+      - "traefik.http.routers.baikal.entrypoints=websecure"
+      - "traefik.http.routers.baikal.tls.certresolver=myresolver"
+    networks:
+      - traefik
+    restart: unless-stopped
+
+networks:
+  traefik:
+    external: true
