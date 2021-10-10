@@ -3,7 +3,7 @@ version: '3'
 services:
 
   baikal:
-    image: ckulka/baikal:nginx
+    image: ckulka/baikal:nginx@sha256:58a25d769ed4a044d7ed4a2c776f0d969d2491725626a21ccbfd49afdd68df3f
     volumes:
       - /var/volumes/baikal/config:/var/www/baikal/config
       - /var/volumes/baikal/data:/var/www/baikal/Specific
