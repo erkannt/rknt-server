@@ -7,7 +7,7 @@ services:
       - TZ=Europe/London
     volumes:
       - /var/volumes/calibre-web:/config
-      - /var/volumes/nextcloud/nextcloud/data/dhaarhoff/files/calibre-library:/books:ro
+      - /var/volumes/syncthing/Calibre-Library:/books:ro
     networks:
       - traefik
     labels:
