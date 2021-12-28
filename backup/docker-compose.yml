@@ -1,7 +1,6 @@
-version: '3'
+version: "3"
 
 services:
-
   minio:
     image: minio/minio@sha256:cf515f24fa4badab33ce69510796dc7efee3ec00283e3907c0ff773b319ad763
     volumes:
@@ -17,13 +16,34 @@ services:
       retries: 3
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.minio-backup.rule=Host(`backup.rknt.de`)"
-      - "traefik.http.routers.minio-backup.entrypoints=websecure"
-      - "traefik.http.routers.minio-backup.tls.certresolver=myresolver"
+      - "traefik.http.routers.backup.rule=Host(`backup.rknt.de`)"
+      - "traefik.http.routers.backup.entrypoints=websecure"
+      - "traefik.http.routers.backup.tls.certresolver=myresolver"
     networks:
       - traefik
+      - minio
+    restart: unless-stopped
+
+  console:
+    image: minio/console
+    environment:
+      - CONSOLE_MINIO_SERVER=http://minio:9000
+      - CONSOLE_PBKDF_PASSPHRASE=${BACKUP_CONSOLE_PBKDF_PASSPHRASE}
+      - CONSOLE_PBKDF_SALT=${BACKUP_CONSOLE_PBKDF_SALT}
+    command: server
+    labels:
+      - "traefik.enable=true"
+      - "traefik.docker.network=traefik"
+      - "traefik.http.routers.console-backup.rule=Host(`console.backup.rknt.de`)"
+      - "traefik.http.routers.console-backup.entrypoints=websecure"
+      - "traefik.http.routers.console-backup.tls.certresolver=myresolver"
+    networks:
+      - traefik
+      - minio
     restart: unless-stopped
 
 networks:
   traefik:
     external: true
+  minio:
+    internal: true
