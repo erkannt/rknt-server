@@ -16,6 +16,7 @@ services:
       retries: 3
     labels:
       - "traefik.enable=true"
+      - "traefik.docker.network=traefik"
       - "traefik.http.routers.backup.rule=Host(`backup.rknt.de`)"
       - "traefik.http.routers.backup.entrypoints=websecure"
       - "traefik.http.routers.backup.tls.certresolver=myresolver"

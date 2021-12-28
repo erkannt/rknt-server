@@ -1,7 +1,7 @@
 #!/bin/bash
 source ../.env
 
-mc alias set backup https://backup.dmun.de ${BACKUP_ACCESS_KEY} ${BACKUP_SECRET_KEY}
+mc alias set backup https://backup.rknt.de ${BACKUP_ACCESS_KEY} ${BACKUP_SECRET_KEY}
 
 mc admin policy add backup consoleAdmin admin-policy.json
 
