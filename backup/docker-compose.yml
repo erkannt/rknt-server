@@ -1,0 +1,29 @@
+version: '3'
+
+services:
+
+  minio:
+    image: minio/minio@sha256:cf515f24fa4badab33ce69510796dc7efee3ec00283e3907c0ff773b319ad763
+    volumes:
+      - /var/volumes:/data:ro
+    environment:
+      - MINIO_ACCESS_KEY=${BACKUP_ACCESS_KEY}
+      - MINIO_SECRET_KEY=${BACKUP_SECRET_KEY}
+    command: server /data
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:9000/minio/health/live"]
+      interval: 30s
+      timeout: 20s
+      retries: 3
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.minio-backup.rule=Host(`backup.rknt.de`)"
+      - "traefik.http.routers.minio-backup.entrypoints=websecure"
+      - "traefik.http.routers.minio-backup.tls.certresolver=myresolver"
+    networks:
+      - traefik
+    restart: unless-stopped
+
+networks:
+  traefik:
+    external: true
