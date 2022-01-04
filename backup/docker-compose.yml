@@ -2,7 +2,7 @@ version: "3"
 
 services:
   minio:
-    image: minio/minio@sha256:40223ca295c79a929fcd26632f441c1f85959a9ddefc1c516332c741ccdcb2e8
+    image: minio/minio@sha256:e1947694065ff1d5774230b3b27c15360491f4d43b1df3ff7094940ca8d0b57c
     volumes:
       - /var/volumes:/data
     environment:
