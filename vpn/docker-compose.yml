@@ -2,7 +2,7 @@ version: "3"
 
 services:
   wireguard-easy:
-    image: weejewel/wg-easy@sha256:bf3d2f9b55dc8cd2aa58acaf234c170c93e06fb29489e365f64c9775a3608bf7
+    image: weejewel/wg-easy@sha256:5b237e2f1398a29901c0743ea25280b52e1ad047ebe3ee497892b7a5f70d1fd6
     environment:
       - WG_HOST=vpn.rknt.de
       - PASSWORD=${WG_PASSWORD}
