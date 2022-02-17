@@ -26,7 +26,7 @@ services:
     restart: unless-stopped
 
   console:
-    image: minio/console@sha256:029d381631a7c2aea78c230aebe096700a7109f29721bb3c620ab833a2681899
+    image: minio/console@sha256:b44da47d0da8fad9933735d008c0b3e684921ca9829686825f1d36b6761d2b9c
     environment:
       - CONSOLE_MINIO_SERVER=http://minio:9000
       - CONSOLE_PBKDF_PASSPHRASE=${BACKUP_CONSOLE_PBKDF_PASSPHRASE}
