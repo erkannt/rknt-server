@@ -1,0 +1,26 @@
+version: '3'
+
+services:
+  audiobookshelf:
+    image: advplyr/audiobookshelf
+    environment:
+      - AUDIOBOOKSHELF_UID=99
+      - AUDIOBOOKSHELF_GID=100
+      - TZ=Europe/London
+    volumes:
+      - /var/volumes/airsonic/music:/audiobooks
+      - /var/volumes/audiobookshelf/config:/config
+      - /var/volumes/audiobookshelf/metadata:/metadata
+    labels:
+      - "traefik.enable=true"
+      - "traefik.docker.network=traefik"
+      - "traefik.http.routers.audiobooks.rule=Host(`audiobooks.rknt.de`)"
+      - "traefik.http.routers.audiobooks.entrypoints=websecure"
+      - "traefik.http.routers.audiobooks.tls.certresolver=myresolver"
+    networks:
+      - traefik
+    restart: unless-stopped
+
+networks:
+  traefik:
+    external: true
