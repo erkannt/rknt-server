@@ -2,7 +2,7 @@ version: '3'
 
 services:
   server:
-    image: drone/drone:2@sha256:674e62c62cf41e06773c1b5e89687f1d514d49db6d1bb78678a5ef86927bc479
+    image: drone/drone:2@sha256:6c329c438715dc97ca74f7083eb9e4242fa08c8239be2b729746495b993bb64e
     volumes:
       - /var/volumes/drone:/data
     environment: 
