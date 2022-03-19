@@ -2,7 +2,7 @@ version: '3'
 
 services:
   calibre:
-    image: linuxserver/calibre-web:nightly@sha256:4eb2d50d933cf55527d881f63b878ae0a89f985ba7d502e3166f9e133b2f93da
+    image: linuxserver/calibre-web:nightly@sha256:0c7d0016174112dca566ecc3f5101c9a4f245386136a318098f66565b783ee36
     environment:
       - TZ=Europe/London
     volumes:
