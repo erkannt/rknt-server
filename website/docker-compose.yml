@@ -42,7 +42,7 @@ services:
     restart: unless-stopped
 
   minio:
-    image: minio/minio@sha256:f227dc4f6c4f6d0e4fed9059d1766e907b0f374de0fa36581e7cd6546048a033
+    image: minio/minio@sha256:3ba51aeaf7cb52f5af2bc4537d7b79acb2bed724b8194c09b869f91907041c6c
     volumes:
       - /var/volumes/website-bucket:/data
     environment:
