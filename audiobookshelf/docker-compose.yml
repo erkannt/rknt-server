@@ -2,7 +2,7 @@ version: '3'
 
 services:
   audiobookshelf:
-    image: advplyr/audiobookshelf@sha256:992cba9c1cd12c869648008dfae06b83d135c1b0f185ccac799e7bed521009a9
+    image: advplyr/audiobookshelf@sha256:e2c0e376787fa6214c8d43e253ec63c65bc0add5334d8108194368d3d6828e65
     environment:
       - AUDIOBOOKSHELF_UID=99
       - AUDIOBOOKSHELF_GID=100
