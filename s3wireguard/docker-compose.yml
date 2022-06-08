@@ -13,7 +13,7 @@ services:
       - ./server.conf:/config/templates/server.conf
       - /lib/modules:/lib/modules
     ports:
-      - 51820:51820/udp
+      - 51840:51820/udp
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.s3wireguard.rule=Host(`s3.rknt.de`)"
