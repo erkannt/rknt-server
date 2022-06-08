@@ -1,0 +1,29 @@
+version: "3"
+services:
+  syncthing:
+    image: lscr.io/linuxserver/wireguard
+    container_name: s3wireguard
+    cap_add:
+      - NET_ADMIN
+      - SYS_MODULE
+    environment:
+      - PUID=1000
+      - PGID=1000
+    volumes:
+      - ./server.conf:/config/templates/server.conf
+      - /lib/modules:/lib/modules
+    ports:
+      - 51820:51820/udp
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.s3wireguard.rule=Host(`s3.rknt.de`)"
+      - "traefik.http.routers.s3wireguard.entrypoints=websecure"
+      - "traefik.http.routers.s3wireguard.tls.certresolver=myresolver"
+      - "traefik.http.services.s3wireguard.loadbalancer.server.port=443"
+    networks:
+      - traefik
+    restart: unless-stopped
+
+networks:
+  traefik:
+    external: true
