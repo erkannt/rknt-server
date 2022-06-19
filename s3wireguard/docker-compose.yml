@@ -1,7 +1,7 @@
 version: "3"
 services:
   syncthing:
-    image: lscr.io/linuxserver/wireguard@sha256:e815804bad57c63d3c3cf2a3bf205b6be7fb5f4be597352026fff4938e83f266
+    image: lscr.io/linuxserver/wireguard@sha256:514d88f9d4b46a29d8ab7a110fa1e5bf3e7edb333b1707a1a17c796b2833a957
     container_name: s3wireguard
     cap_add:
       - NET_ADMIN
