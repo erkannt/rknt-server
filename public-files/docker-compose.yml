@@ -3,7 +3,7 @@ version: '3'
 services:
 
   miniserve:
-    image: svenstaro/miniserve@sha256:509fcccd0092bfbfe343506d8772715b39134d9cf0e11c4f508225b97963d320
+    image: svenstaro/miniserve@sha256:36168ead6a3ef22faec58471c9a6d852b0a7beba76e09dce005eda42cf591954
     command: /public
     volumes:
       - /var/volumes/syncthing/public:/public:ro
