@@ -35,7 +35,7 @@ services:
       - matomo
 
   web:
-    image: nginx:alpine@sha256:8e38930f0390cbd79b2d1528405fb17edcda5f4a30875ecf338ebaa598dc994e
+    image: nginx:alpine@sha256:4a846cc240449c53c8ae24269ba6bcaee5167d8ad75cd2a8d8ba422b7c726979
     restart: unless-stopped
     depends_on:
       - matomo
