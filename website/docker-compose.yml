@@ -3,7 +3,7 @@ version: '3'
 services:
 
   website:
-    image: "nginx:1-alpine@sha256:8e38930f0390cbd79b2d1528405fb17edcda5f4a30875ecf338ebaa598dc994e"
+    image: "nginx:1-alpine@sha256:4a846cc240449c53c8ae24269ba6bcaee5167d8ad75cd2a8d8ba422b7c726979"
     volumes:
       - /var/volumes/website-bucket/rknt.de:/usr/share/nginx/html:ro
     labels:
@@ -16,7 +16,7 @@ services:
     restart: unless-stopped
 
   python-exercises:
-    image: "nginx:1-alpine@sha256:8e38930f0390cbd79b2d1528405fb17edcda5f4a30875ecf338ebaa598dc994e"
+    image: "nginx:1-alpine@sha256:4a846cc240449c53c8ae24269ba6bcaee5167d8ad75cd2a8d8ba422b7c726979"
     volumes:
       - /var/volumes/website-bucket/python-exercises:/usr/share/nginx/html:ro
     labels:
@@ -29,7 +29,7 @@ services:
     restart: unless-stopped
 
   freunde-preview:
-    image: "nginx:1-alpine@sha256:8e38930f0390cbd79b2d1528405fb17edcda5f4a30875ecf338ebaa598dc994e"
+    image: "nginx:1-alpine@sha256:4a846cc240449c53c8ae24269ba6bcaee5167d8ad75cd2a8d8ba422b7c726979"
     volumes:
       - /var/volumes/website-bucket/freunde-preview:/usr/share/nginx/html:ro
     labels:
