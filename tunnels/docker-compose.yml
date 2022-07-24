@@ -2,11 +2,13 @@ version: "3"
 services:
   openssh-server:
     image: lscr.io/linuxserver/openssh-server
+    volumes:
+      - ./public-keys:/public-keys
     environment:
       - PUID=1000
       - PGID=1000
       - TZ=Europe/London
-      - PUBLIC_KEY=${PUBLIC_KEY}
+      - PUBLIC_KEY_DIR=/public-keys
       - USER_NAME=tunnel
     ports:
       - 2280:2222
