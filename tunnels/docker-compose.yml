@@ -13,7 +13,7 @@ services:
     volumes:
       - ./default.conf:/etc/nginx/conf.d/default.conf:ro
     labels:
-      - "traefik.enable=true"
+      - "traefik.enable=false"
       - "traefik.docker.network=traefik"
       - "traefik.http.routers.s3-proxy.rule=Host(`minio.rknt.de`)"
       - "traefik.http.routers.s3-proxy.entrypoints=websecure"
