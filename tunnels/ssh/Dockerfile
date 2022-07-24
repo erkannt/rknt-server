@@ -2,7 +2,7 @@ FROM alpine:3
 ENTRYPOINT [ "/entrypoint.sh" ]
 EXPOSE 22
 ADD entrypoint.sh /
-ADD hff.key /home/tunnel/.ssh/authorized_keys
+ADD authorized_keys.key /home/tunnel/.ssh/authorized_keys
 
 RUN apk add --no-cache openssh \
 	&& passwd -d root \
