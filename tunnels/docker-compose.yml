@@ -3,7 +3,7 @@ services:
   openssh-server:
     image: lscr.io/linuxserver/openssh-server
     volumes:
-      - ./public-keys:/public-keys
+      - ./tunnels/public-keys:/public-keys
     environment:
       - PUID=1000
       - PGID=1000
