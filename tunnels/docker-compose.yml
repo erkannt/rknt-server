@@ -1,0 +1,17 @@
+version: "3"
+services:
+  openssh-server:
+    image: lscr.io/linuxserver/openssh-server
+    environment:
+      - PUID=1000
+      - PGID=1000
+      - TZ=Europe/London
+      - PUBLIC_KEY=${PUBLIC_KEY}
+      - USER_NAME=tunnel
+    ports:
+      - 2280:2222
+    restart: unless-stopped
+
+networks:
+  traefik:
+    external: true
