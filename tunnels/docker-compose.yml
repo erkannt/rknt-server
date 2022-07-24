@@ -15,7 +15,7 @@ services:
     labels:
       - "traefik.enable=true"
       - "traefik.docker.network=traefik"
-      - "traefik.http.routers.s3-proxy.rule=Host(`s3.rknt.de`)"
+      - "traefik.http.routers.s3-proxy.rule=Host(`minio.rknt.de`)"
       - "traefik.http.routers.s3-proxy.entrypoints=websecure"
       - "traefik.http.routers.s3-proxy.tls.certresolver=myresolver"
     networks:
