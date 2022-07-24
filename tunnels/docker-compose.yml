@@ -12,6 +12,7 @@ services:
       - USER_NAME=tunnel
     networks:
       - ssh
+      - traefik
     ports:
       - 2280:2222
     restart: unless-stopped
