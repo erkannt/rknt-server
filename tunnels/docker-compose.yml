@@ -3,7 +3,7 @@ services:
   openssh-server:
     image: lscr.io/linuxserver/openssh-server
     volumes:
-      - ./tunnels/public-keys:/public-keys
+      - ./public-keys:/public-keys
     environment:
       - PUID=1000
       - PGID=1000
@@ -13,7 +13,3 @@ services:
     ports:
       - 2280:2222
     restart: unless-stopped
-
-networks:
-  traefik:
-    external: true
