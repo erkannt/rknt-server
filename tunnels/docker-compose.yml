@@ -4,6 +4,8 @@ services:
     build: ./ssh
     ports:
       - "2280:22"
+    networks:
+      - traefik
     restart: unless-stopped
 
   s3-proxy:
