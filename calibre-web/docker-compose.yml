@@ -2,7 +2,7 @@ version: '3'
 
 services:
   calibre:
-    image: linuxserver/calibre-web@sha256:f835a332cbf22d478bef41f1dd698cc737f2f4458c8df688ed1194c40428b274
+    image: linuxserver/calibre-web@sha256:f0e848b8c5a28c40eab4b5db88e02a78f8835fff6066b57921b57b2653fb7514
     environment:
       - TZ=Europe/London
       - PUID=1000
