@@ -12,6 +12,7 @@ services:
       - AWS_SECRET_ACCESS_KEY=${RESTIC_S3_SECRET_ACCESS_KEY}
     entrypoint: |
       ash -c 'ash -s <<EOF
+      apk add curl
       trap "break;exit" SIGHUP SIGINT SIGTERM
 
       echo "`date` restic init..."
