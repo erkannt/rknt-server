@@ -19,7 +19,7 @@ services:
 
       while /bin/true; do
         echo "`date` starting backup..."
-        restic backup /volumes \
+        restic backup --exclude /volumes/airsonic /volumes \
         && curl ${BACKUP_HEALTHCHECK_URL}
         sleep 3600
       done
