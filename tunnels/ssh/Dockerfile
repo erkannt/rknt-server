@@ -1,12 +1,15 @@
 FROM alpine:20220715@sha256:dce2df614040891138b396a13a608dfe09c9c1113c5f19aae494460917a68661
 ENTRYPOINT [ "/entrypoint.sh" ]
 EXPOSE 22
-ADD entrypoint.sh /
-ADD authorized_keys.key /home/tunnel/.ssh/authorized_keys
-ADD etc /etc/ssh
 
 RUN apk add --no-cache openssh \
 	&& passwd -d root \
 	&& adduser -D -s /bin/ash tunnel \
 	&& passwd -u tunnel \
 	&& chown -R tunnel:tunnel /home/tunnel
+
+ADD entrypoint.sh /
+ADD authorized_keys.key /home/tunnel/.ssh/authorized_keys
+ADD etc /etc/ssh
+
+RUN chmod 600 /etc/ssh/ssh_host*
