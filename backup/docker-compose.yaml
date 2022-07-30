@@ -26,3 +26,4 @@ services:
       done
 
       EOF'
+    restart: unless-stopped
