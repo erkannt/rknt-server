@@ -3,3 +3,4 @@
 *.key filter=git-crypt diff=git-crypt
 
 /baikal/msmtprc filter=git-crypt diff=git-crypt
+/tunnels/ssh/etc/* filter=git-crypt diff=git-crypt
