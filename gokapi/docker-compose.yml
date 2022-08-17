@@ -3,7 +3,7 @@ version: '3'
 services:
 
   nginx:
-    image: "f0rc3/gokapi@sha256:fc4f13427e48f76466b41d3413bc418772fd86badeffe7434030a22b7a0b1001"
+    image: "f0rc3/gokapi@sha256:386ef664c57c1bf3d9a2a31fe20b169392b70f6357040dbe68177f1f05d9eddf"
     volumes:
       - /var/volumes/gokapi/data:/app/data
       - /var/volumes/gokapi/conf:/app/config
