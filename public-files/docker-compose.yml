@@ -12,6 +12,7 @@ services:
       - "traefik.http.routers.public-files.rule=Host(`public.rknt.de`)"
       - "traefik.http.routers.public-files.entrypoints=websecure"
       - "traefik.http.routers.public-files.tls.certresolver=myresolver"
+      - "traefik.http.services.public-files.loadbalancer.server.port=8080"
     networks:
       - traefik
     restart: unless-stopped
