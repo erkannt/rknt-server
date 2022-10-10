@@ -50,8 +50,6 @@ services:
       - "traefik.http.routers.nation-action-group-preview.rule=Host(`naglgbtptarr.rknt.de`)"
       - "traefik.http.routers.nation-action-group-preview.entrypoints=websecure"
       - "traefik.http.routers.nation-action-group-preview.tls.certresolver=myresolver"
-      - "traefik.http.routers.nation-action-group-preview.middlewares=nag-auth@docker"
-      - "traefik.http.middlewares.nag-auth.basicauth.users=${NAG_BASICAUTH}"
     networks:
       - traefik
     restart: unless-stopped
