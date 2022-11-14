@@ -47,7 +47,7 @@ services:
       - /var/volumes/website-bucket/ponke-action-group:/usr/share/nginx/html:ro
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.nation-action-group-preview.rule=Host(`travandromalgbti.ie`)"
+      - "traefik.http.routers.nation-action-group-preview.rule=Host(`travandromalgbti.ie`)||Host(`www.travandromalgbti.ie`)"
       - "traefik.http.routers.nation-action-group-preview.entrypoints=websecure"
       - "traefik.http.routers.nation-action-group-preview.tls.certresolver=myresolver"
       - "traefik.http.routers.nation-action-group-preview.middlewares=www-redirect"
