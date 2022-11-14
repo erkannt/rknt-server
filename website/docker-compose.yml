@@ -50,6 +50,10 @@ services:
       - "traefik.http.routers.nation-action-group-preview.rule=Host(`travandromalgbti.ie`)"
       - "traefik.http.routers.nation-action-group-preview.entrypoints=websecure"
       - "traefik.http.routers.nation-action-group-preview.tls.certresolver=myresolver"
+      - "traefik.http.routers.nation-action-group-preview.middlewares=www-redirect"
+      - "traefik.http.middlewares.www-redirect.redirectregex.regex=^https://www.travandromalgbti.ie/(.*)"
+      - "traefik.http.middlewares.www-redirect.redirectregex.replacement=https://travandromalgbti.ie/$${1}"
+      - "traefik.http.middlewares.www-redirect.redirectregex.permanent=true"
     networks:
       - traefik
     restart: unless-stopped
