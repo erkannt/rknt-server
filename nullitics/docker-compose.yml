@@ -11,7 +11,10 @@ services:
       - "traefik.http.routers.nullitics.rule=Host(`nullitics.rknt.de`)"
       - "traefik.http.routers.nullitics.entrypoints=websecure"
       - "traefik.http.routers.nullitics.tls.certresolver=myresolver"
-      - "traefik.http.routers.nullitics.middlewares=admin-auth@docker"
+      - "traefik.http.routers.nullitics-dash.rule=Host(`nullitics.rknt.de`) && Path(`/`)"
+      - "traefik.http.routers.nullitics-dash.entrypoints=websecure"
+      - "traefik.http.routers.nullitics-dash.tls.certresolver=myresolver"
+      - "traefik.http.routers.nullitics-dash.middlewares=admin-auth@docker"
     networks:
       - traefik
     restart: unless-stopped
