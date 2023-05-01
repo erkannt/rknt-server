@@ -1,7 +1,8 @@
 version: "3"
 
 services:
-  baikal:
+  nullitics:
+    image: zserge/nullitics
     volumes:
       - /var/volumes/nullitics/data:/data
     command: "-url nullitics.rknt.de -dir /data"
