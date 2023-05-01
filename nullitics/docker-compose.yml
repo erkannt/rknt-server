@@ -1,0 +1,21 @@
+version: "3"
+
+services:
+  baikal:
+    build:
+      context: ./
+    volumes:
+      - /var/volumes/nullitics/data:/data
+    command: "-url nullitics.rknt.de -dir /data"
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.nullitics.rule=Host(`nullitics.rknt.de`)"
+      - "traefik.http.routers.nullitics.entrypoints=websecure"
+      - "traefik.http.routers.nullitics.tls.certresolver=myresolver"
+    networks:
+      - traefik
+    restart: unless-stopped
+
+networks:
+  traefik:
+    external: true
