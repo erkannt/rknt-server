@@ -6,7 +6,6 @@ services:
     volumes:
       - /var/volumes/gokapi/data:/app/data
       - /var/volumes/gokapi/conf:/app/config
-      - ./styling/static:/app/static
     environment:
       - GOKAPI_USERNAME=rknt
       - GOKAPI_PASSWORD=${GOKAPI_PASSWORD}
