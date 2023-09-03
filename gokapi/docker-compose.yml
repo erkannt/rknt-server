@@ -1,8 +1,7 @@
-version: '3'
+version: "3"
 
 services:
-
-  nginx:
+  gokapi:
     image: "f0rc3/gokapi@sha256:f089de2dbbcd5d75587b81e9ecc41969481d6a983bd4dba736cd77205eb65d48"
     volumes:
       - /var/volumes/gokapi/data:/app/data
@@ -23,7 +22,7 @@ services:
     networks:
       - traefik
     restart: unless-stopped
-  
+
 networks:
   traefik:
     external: true
