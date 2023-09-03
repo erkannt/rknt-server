@@ -2,10 +2,11 @@ version: "3"
 
 services:
   gokapi:
-    image: "f0rc3/gokapi@sha256:f089de2dbbcd5d75587b81e9ecc41969481d6a983bd4dba736cd77205eb65d48"
+    image: "f0rc3/gokapi:v1.7.2"
     volumes:
       - /var/volumes/gokapi/data:/app/data
       - /var/volumes/gokapi/conf:/app/config
+      - ./styling/static:/app/static
     environment:
       - GOKAPI_USERNAME=rknt
       - GOKAPI_PASSWORD=${GOKAPI_PASSWORD}
