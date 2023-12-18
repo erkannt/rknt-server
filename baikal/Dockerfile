@@ -1,4 +1,4 @@
-FROM ckulka/baikal:nginx@sha256:003602cf406d78aec360d69dfca9497e92eebac2619594785330bf5436270939
+FROM ckulka/baikal:nginx@sha256:2dbd7b7870cd39692fdbeb16cf18902066819442fa6f6bcf7b2c8d55eb349c9b
 
 RUN curl -o /etc/apt/trusted.gpg.d/php.gpg https://packages.sury.org/php/apt.gpg \
 	&& echo "deb https://packages.sury.org/php/ buster main" > /etc/apt/sources.list.d/php.list \
