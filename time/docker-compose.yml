@@ -1,0 +1,22 @@
+version: "3"
+
+services:
+  traggo:
+    image: "traggo/server"
+    volumes:
+      - /var/volumes/time/data:/opt/traggo/data
+    environment:
+      TRAGGO_DEFAULT_USER_NAME: "admin"
+      TRAGGO_DEFAULT_USER_PASS: "${TRAGGO_ADMIN}"
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.time.rule=Host(`time.rknt.de`)"
+      - "traefik.http.routers.time.entrypoints=websecure"
+      - "traefik.http.routers.time.tls.certresolver=myresolver"
+    networks:
+      - traefik
+    restart: unless-stopped
+
+networks:
+  traefik:
+    external: true
