@@ -2,7 +2,7 @@ version: '3'
 
 services:
   restic:
-    image: restic/restic@sha256:ed8b59fa99d63cd516786c106aa50cb9173fe8ff7fc8c44001811f94196a4393
+    image: restic/restic@sha256:0e5d86db0d2f6c48a2fb00c181e722910bee8f4e39e60bbbd26d82581c568326
     volumes:
       - /var/volumes:/volumes
     environment:
