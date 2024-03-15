@@ -2,7 +2,7 @@ version: "3"
 
 services:
   db:
-    image: mariadb:10@sha256:05b53c3f7ebf1884f37fe9efd02da0b7faa0d03e86d724863f3591f963de632c
+    image: mariadb:10@sha256:e98337d5c18adc1a33d974eb1f3417f4c1064d3f690934f3b849ca195325f487
     command: --max-allowed-packet=64MB
     restart: unless-stopped
     volumes:
