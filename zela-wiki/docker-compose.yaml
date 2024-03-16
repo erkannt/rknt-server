@@ -12,6 +12,7 @@ services:
       - "--config=/etc/gollum/config.rb"
     labels:
       - "traefik.enable=true"
+      - "traefik.http.services.how2zela-wiki.loadbalancer.server.port=4567"
       - "traefik.http.routers.how2zela-wiki.rule=Host(`wiki.how2zela.rknt.de`)"
       - "traefik.http.routers.how2zela-wiki.entrypoints=websecure"
       - "traefik.http.routers.how2zela-wiki.tls.certresolver=myresolver"
