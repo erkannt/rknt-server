@@ -1,1 +1,1 @@
-Precious::App.set(:wiki_options, { :index_page => 'SUMMARY', :base_path => '/wiki' })
+Precious::App.set(:wiki_options, { :index_page => 'SUMMARY', :ref => 'main' })
