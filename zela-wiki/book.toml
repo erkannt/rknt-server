@@ -1,0 +1,19 @@
+[book]
+title = "How2ZeLa"
+
+[output.html]
+
+[output.pandoc.profile.pdf]
+output-file = "output.pdf"
+to = "latex"
+
+[output.pandoc.profile.pdf.variables]
+book = "true"
+header-right = "\\leftmark"
+lang = "de"
+titlepage = "true"
+titlepage-color = "B6321C"
+titlepage-text-color = "FFFFFF"
+titlepage-rule-color = "FFFFFF"
+title = "How 2 Zela"
+date = "\\today"

@@ -1,0 +1,11 @@
+:80 {
+	redir /print.html /pandoc/pdf/output.pdf
+	root * /var/www/html/mdbook
+
+	handle_path /pandoc/* {
+		root * /var/www/html/pandoc
+		file_server
+	}
+
+	file_server
+}

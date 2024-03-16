@@ -1,0 +1,50 @@
+version: "3.7"
+
+services:
+  gollum:
+    image: gollumwiki/gollum:v5.3.0
+    restart: unless-stopped
+    volumes:
+      - ./gollum-config/gitconfig:/home/www-data/.gitconfig
+      - ./gollum-config/config.rb:/etc/gollum/config.rb
+      - /var/volumes/zela-wiki/wikidata:/wiki
+    command:
+      - "--config=/etc/gollum/config.rb"
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.zela-wiki.rule=Host(`zela-wiki.rknt.de`)"
+      - "traefik.http.routers.zela-wiki.entrypoints=websecure"
+      - "traefik.http.routers.zela-wiki.tls.certresolver=myresolver"
+      - "traefik.http.routers.zela-wiki.middlewares=zela-auth@docker"
+    networks:
+      - traefik
+
+  mdbook:
+    build:
+      context: ./mdbook-container
+      dockerfile: Dockerfile
+    volumes:
+      - /var/volumes/zela-wiki/wikidata:/data/src
+      - /var/volumes/zela-wiki/output:/output
+      - ./book.toml:/data/book.toml
+
+  web:
+    image: caddy
+    volumes:
+      - /var/volumes/zela-wiki/output/html:/var/www/html/mdbook
+      - /var/volumes/zela-wiki/output/pandoc:/var/www/html/pandoc
+      - ./Caddyfile:/etc/caddy/Caddyfile
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.how2zela.rule=Host(`how2zela.rknt.de`)"
+      - "traefik.http.routers.how2zela.entrypoints=websecure"
+      - "traefik.http.routers.how2zela.tls.certresolver=myresolver"
+      - "traefik.http.routers.how2zela.middlewares=zela-auth@docker"
+      - "traefik.http.middlewares.zela-auth.basicauth.users=${ZELA_AUTH}"
+    networks:
+      - traefik
+    restart: unless-stopped
+
+networks:
+  traefik:
+    external: true
