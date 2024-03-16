@@ -1,7 +1,7 @@
 #!/bin/sh
 
 defined_containers=""
-for composefile in $(find . -name docker-compose.yml); do
+for composefile in $(find . -name docker-compose.yml -o -name docker-compose.yaml); do
     service=$(echo $composefile | cut -f 2 -d '/')
     containers=$(yq read ${composefile} --printMode p 'services.*' | sed -e 's/services\.//')
     for container in $containers; do
