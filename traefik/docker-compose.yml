@@ -2,7 +2,7 @@ version: "3"
 
 services:
   traefik:
-    image: "traefik:v2.9@sha256:c76ba827c1f64bbac5ee14a93f8b3ea4e1f61c1f4b9bb0b50864eef0c5a89735"
+    image: "traefik:v3.0@sha256:940b0c3dd5468fb2dbc26eb6180a213e2f05ea5d10eeec4373abee136a159652"
     command:
       - "--providers.docker=true"
       - "--providers.docker.exposedbydefault=false"
