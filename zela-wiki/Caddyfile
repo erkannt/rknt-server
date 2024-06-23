@@ -1,5 +1,6 @@
 :80 {
 	respond /ping 200 pong
+
 	redir /print.html /pandoc/pdf/output.pdf
 	root * /var/www/html/mdbook
 
