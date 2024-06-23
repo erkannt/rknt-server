@@ -38,7 +38,7 @@ services:
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.how2zela.rule=Host(`how2.zela-od.de`)"
-      - "traefik.http.routers.how2zela-ping.rule=Path(`/ping`)"
+      - "traefik.http.routers.how2zela-ping.rule=Host(`how2.zela-od.de`) && Path(`/ping`)"
       - "traefik.http.routers.how2zela.entrypoints=websecure"
       - "traefik.http.routers.how2zela.tls.certresolver=myresolver"
       - "traefik.http.routers.how2zela.middlewares=zela-auth@docker"
