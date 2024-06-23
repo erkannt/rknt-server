@@ -13,7 +13,7 @@ services:
     labels:
       - "traefik.enable=true"
       - "traefik.http.services.how2zela-wiki.loadbalancer.server.port=4567"
-      - "traefik.http.routers.how2zela-wiki.rule=Host(`wiki.how2zela.rknt.de`)"
+      - "traefik.http.routers.how2zela-wiki.rule=Host(`wiki.zela-od.de`)"
       - "traefik.http.routers.how2zela-wiki.entrypoints=websecure"
       - "traefik.http.routers.how2zela-wiki.tls.certresolver=myresolver"
       - "traefik.http.routers.how2zela-wiki.middlewares=zela-auth@docker"
@@ -37,7 +37,7 @@ services:
       - ./Caddyfile:/etc/caddy/Caddyfile
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.how2zela.rule=Host(`how2zela.rknt.de`)"
+      - "traefik.http.routers.how2zela.rule=Host(`how2.zela-od.de`)"
       - "traefik.http.routers.how2zela.entrypoints=websecure"
       - "traefik.http.routers.how2zela.tls.certresolver=myresolver"
       - "traefik.http.routers.how2zela.middlewares=zela-auth@docker"
