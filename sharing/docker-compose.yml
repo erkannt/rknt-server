@@ -5,7 +5,7 @@ services:
     container_name: sharry
     command: /opt/sharry.conf
     volumes:
-      - ${PWD}/sharry.conf:/opt/sharry.conf
+      - ./sharry.conf:/opt/sharry.conf
       - /var/volumes/sharry:/var/sharry
     labels:
       - "traefik.enable=true"
