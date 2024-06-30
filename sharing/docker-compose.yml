@@ -14,4 +14,10 @@ services:
       - "traefik.http.routers.sharing.entrypoints=websecure"
       - "traefik.http.services.sharing.loadbalancer.server.port=80"
       - "traefik.http.routers.sharing.tls.certresolver=myresolver"
+    networks:
+      - traefik
     restart: unless-stopped
+
+networks:
+  traefik:
+    external: true
