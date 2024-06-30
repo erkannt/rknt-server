@@ -1,10 +1,13 @@
 version: "3.7"
 services:
   restserver:
-    image: rootgg/plik:latest
+    image: mtlynch/picoshare
     volumes:
-      - ./plikd.cfg:/home/plik/server/plikd.cfg
-      - /var/volumes/plik:/data
+      - /var/volumes/picoshare:/data
+    environment:
+      - PORT=80
+      - PS_SHARED_SECRET=${PS_SHARED_SECRET}
+    command: -db /data/store.db
     labels:
       - "traefik.enable=true"
       - "traefik.http.routers.sharing.rule=Host(`sharing.rknt.de`)"
