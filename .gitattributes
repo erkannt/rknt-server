@@ -4,4 +4,3 @@
 
 /baikal/msmtprc filter=git-crypt diff=git-crypt
 /tunnels/ssh/etc/* filter=git-crypt diff=git-crypt
-sharry.conf filter=git-crypt diff=git-crypt
