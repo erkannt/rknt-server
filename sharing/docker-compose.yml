@@ -2,6 +2,7 @@ version: "3.7"
 services:
   restserver:
     image: rootgg/plik:latest
+    volumes:
       - ./plikd.cfg:/home/plik/server/plikd.cfg
       - /var/volumes/plik:/data
     labels:
