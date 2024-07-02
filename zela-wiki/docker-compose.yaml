@@ -2,7 +2,7 @@ version: "3.7"
 
 services:
   gollum:
-    image: gollumwiki/gollum:v5.3.0
+    image: gollumwiki/gollum:v5.3.0@sha256:1c88bb20bb599f59084881e1c1e30705665e8c01a40b5b6738b4ff923b033f41
     restart: unless-stopped
     volumes:
       - ./gollum-config/gitconfig:/home/www-data/.gitconfig
@@ -30,7 +30,7 @@ services:
       - ./book.toml:/data/book.toml
 
   web:
-    image: caddy
+    image: caddy@sha256:2c7c4a3b9534b34d598a02e7d2be61d3b3355fb77245aea43c27c6d93e09d55f
     volumes:
       - /var/volumes/zela-wiki/output/html:/var/www/html/mdbook
       - /var/volumes/zela-wiki/output/pandoc:/var/www/html/pandoc
