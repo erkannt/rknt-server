@@ -1,4 +1,4 @@
-FROM alpine:20220715@sha256:69361f5f421bb47db6f2f6baf84ab50b8f7c9b209f8376048dda955535224be8
+FROM alpine:3
 ENTRYPOINT [ "/entrypoint.sh" ]
 EXPOSE 22
 
