@@ -1,0 +1,8 @@
+:80
+
+route {
+	basic_auth {
+		{$DAV_USER} {$DAV_PASSWORD}
+	}
+	reverse_proxy move:8080
+}
