@@ -3,6 +3,8 @@ version: "3"
 services:
   move:
     image: rknt/go-move
+    environment:
+      - SEARCH_URL=${SEARCH_URL}
     volumes:
       - /var/volumes/move/data:/app/data
       - /var/volumes/move/cache:/app/cache
