@@ -12,7 +12,7 @@ services:
   cadddy:
     image: caddy
     volumes:
-      - Caddyfile:/etc/caddy/Caddyfile
+      - ./Caddyfile:/etc/caddy/Caddyfile
     env_file:
       - .env
     labels:
