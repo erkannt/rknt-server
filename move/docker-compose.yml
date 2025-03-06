@@ -1,8 +1,7 @@
 version: "3"
-
 services:
   move:
-    image: rknt/go-move
+    image: rknt/go-move:20250306194945-0c5f002-dirty
     environment:
       - SEARCH_URL=${SEARCH_URL}
     volumes:
@@ -10,7 +9,6 @@ services:
       - /var/volumes/move/cache:/app/cache
     networks:
       - move
-
   cadddy:
     image: caddy:2
     volumes:
@@ -28,7 +26,6 @@ services:
       - traefik
       - move
     restart: unless-stopped
-
 networks:
   traefik:
     external: true
