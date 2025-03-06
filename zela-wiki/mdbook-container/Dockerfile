@@ -1,4 +1,4 @@
-FROM rust:slim@sha256:cce3359e1a57c47dd5b01bbc01b092f7b46754ced3183beea53fb365ea102e57
+FROM rust:slim@sha256:1b2d3c90bad6287266377cf9e7aa2c80001ae632dff3085284aee1db9a13ea2f
 
 RUN cargo install mdbook mdbook-pandoc
 RUN apt-get update && apt-get install -y \
