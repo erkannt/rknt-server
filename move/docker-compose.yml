@@ -1,7 +1,7 @@
 version: "3"
 services:
   move:
-    image: rknt/go-move:20250306194945-0c5f002-dirty
+    image: rknt/go-move:20250306195035-26eee22
     environment:
       - SEARCH_URL=${SEARCH_URL}
     volumes:
