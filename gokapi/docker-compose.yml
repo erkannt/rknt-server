@@ -2,7 +2,7 @@ version: "3"
 
 services:
   gokapi:
-    image: "f0rc3/gokapi:v1.7.2@sha256:c36a63685223e429438cdb6fd4310f72c4be72e711f44e640f94625edeb2cc00"
+    image: "f0rc3/gokapi:v1.9.6@sha256:ae9094a0ead891eef80499a072e680734bcb34892242f0e232223c65eb4c3af8"
     volumes:
       - /var/volumes/gokapi/data:/app/data
       - /var/volumes/gokapi/conf:/app/config
