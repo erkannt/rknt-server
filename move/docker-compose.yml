@@ -1,7 +1,7 @@
 version: "3"
 services:
   move:
-    image: rknt/go-move:20250307083841-a76e7cf
+    image: rknt/go-move:20250307083841-a76e7cf@sha256:7605008a8e6d40d4487add85b5bbb7e1b43e4033e1ffb08e89b05633c91ea648
     environment:
       - SEARCH_URL=${SEARCH_URL}
     volumes:
@@ -10,7 +10,7 @@ services:
     networks:
       - move
   cadddy:
-    image: caddy:2
+    image: caddy:2@sha256:1c4bc9ead95a0888f1eea3a56ef79f30bd0d271229828fdd25090d898f553571
     volumes:
       - ./Caddyfile:/etc/caddy/Caddyfile
     env_file:
