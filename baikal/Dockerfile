@@ -1,4 +1,4 @@
-FROM ckulka/baikal:nginx@sha256:b6c768d838a1caafe737d4b5f188c7d182bbead5ae4e97ee381511f3f186e552
+FROM ckulka/baikal:nginx@sha256:1a901125d121a3e414cda87c617bd322c57ae86b9d2aedbff7b3a7ac84bb23aa
 
 RUN apt update \
 	&& apt-get remove -y sendmail \
