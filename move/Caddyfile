@@ -1,8 +1,0 @@
-:80
-
-route {
-	basic_auth {
-		{$USER} {$PASSWORD}
-	}
-	reverse_proxy move:8080
-}
