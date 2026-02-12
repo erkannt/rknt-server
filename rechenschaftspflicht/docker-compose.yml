@@ -1,0 +1,31 @@
+version: "3"
+
+services:
+  server:
+    image: rknt/rechenschaftspflicht
+    ports:
+      - "80:8080"
+    volumes:
+      - ./src/data:/app/data
+    environment:
+      - JWT_SECRET=${RP_JWT_SECRET}
+      - BEARER_TOKEN=${RP_BEARER_TOKEN}
+      - SMTP_HOST=${RP_SMTP_HOST}
+      - SMTP_PORT=${RP_SMTP_PORT}
+      - SMTP_USER=${RP_SMTP_USER}
+      - SMTP_PASS=${RP_SMTP_PASS}
+      - SMTP_FROM=no-reply@rknt.de
+      - APP_ORIGIN=https://rechenschaftspflicht.rknt.de
+    networks:
+      - traefik
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.rechenschaftspflicht.rule=Host(`rechenschaftspflicht.rknt.de`)"
+      - "traefik.http.services.rechenschaftspflicht.loadbalancer.server.port=80"
+      - "traefik.http.routers.rechenschaftspflicht.entrypoints=websecure"
+      - "traefik.http.routers.rechenschaftspflicht.tls.certresolver=myresolver"
+    restart: unless-stopped
+
+networks:
+  traefik:
+    external: true
