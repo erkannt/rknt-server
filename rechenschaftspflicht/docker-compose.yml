@@ -1,6 +1,6 @@
 version: "3"
 services:
-  server:
+  rechenschaftspflicht:
     image: rknt/rechenschaftspflicht
     ports:
       - "80:8080"
@@ -24,8 +24,6 @@ services:
       - "traefik.http.routers.rechenschaftspflicht.entrypoints=websecure"
       - "traefik.http.routers.rechenschaftspflicht.tls.certresolver=myresolver"
     restart: unless-stopped
-  rechenschaftspflicht:
-    image: rknt/rechenschaftspflicht:20260212082058-4394ca0-dirty
 networks:
   traefik:
     external: true
