@@ -1,7 +1,7 @@
 version: "3"
 services:
   rechenschaftspflicht:
-    image: rknt/rechenschaftspflicht:20260212082528-ddf1be1
+    image: rknt/rechenschaftspflicht:20260212082528-ddf1be1@sha256:23c4e7dbb1e1fa5bdad4bde4c9f7913c35c77546aab0f084c0b4288b37c15520
     ports:
       - "80:8080"
     volumes:
