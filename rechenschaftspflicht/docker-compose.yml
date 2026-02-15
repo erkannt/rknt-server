@@ -3,7 +3,7 @@ services:
   rechenschaftspflicht:
     image: rknt/rechenschaftspflicht:20260212082528-ddf1be1@sha256:23c4e7dbb1e1fa5bdad4bde4c9f7913c35c77546aab0f084c0b4288b37c15520
     volumes:
-      - ./src/data:/app/data
+      - /var/volumes/rechenschaftspflicht:/data
     environment:
       - JWT_SECRET=${RP_JWT_SECRET}
       - BEARER_TOKEN=${RP_BEARER_TOKEN}
