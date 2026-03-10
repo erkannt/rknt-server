@@ -1,7 +1,7 @@
 version: "3"
 services:
   rechenschaftspflicht:
-    image: rknt/rechenschaftspflicht:20260215101211-174bba7
+    image: rknt/rechenschaftspflicht:20260310091351-dc2e6aa
     volumes:
       - /var/volumes/rechenschaftspflicht:/data
     environment:
