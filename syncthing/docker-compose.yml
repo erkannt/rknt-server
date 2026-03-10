@@ -1,7 +1,7 @@
 version: '3'
 services:
   syncthing:
-    image: syncthing/syncthing@sha256:fb02c91d19a2be57c61ef7a2b42e08b323486581930fb1085e4dfa9eb04b4ee4
+    image: syncthing/syncthing@sha256:37c0e031d9f5559dfa416f0f9157509277d97a24abd0ad27590bd92a91616ecc
     container_name: syncthing
     hostname: rknt.de
     environment:
