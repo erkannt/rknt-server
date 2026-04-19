@@ -30,7 +30,7 @@ services:
       - ./book.toml:/data/book.toml
 
   web:
-    image: caddy@sha256:2c7c4a3b9534b34d598a02e7d2be61d3b3355fb77245aea43c27c6d93e09d55f
+    image: caddy@sha256:25cdc846626b62d05f6b633b9b40c2c9f6ef89b515dc76133cefd920f7dbe562
     volumes:
       - /var/volumes/zela-wiki/output/html:/var/www/html/mdbook
       - /var/volumes/zela-wiki/output/pandoc:/var/www/html/pandoc
