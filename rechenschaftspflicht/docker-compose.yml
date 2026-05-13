@@ -1,7 +1,7 @@
 version: "3"
 services:
   rechenschaftspflicht:
-    image: rknt/rechenschaftspflicht:20260513154706-8728ad7-dirty
+    image: rknt/rechenschaftspflicht:20260513154706-8728ad7-dirty@sha256:10491557894632a379170371e33d799b51d2a6fc92e388ae8755457dd79e263d
     environment:
       - JWT_SECRET=${RP_JWT_SECRET}
       - BEARER_TOKEN=${RP_BEARER_TOKEN}
