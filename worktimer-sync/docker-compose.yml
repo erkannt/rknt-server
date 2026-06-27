@@ -1,7 +1,7 @@
 version: "3"
 services:
   rechenschaftspflicht:
-    image: rknt/worktimer-sync
+    image: rknt/worktimer-sync-server
     environment:
       - PORT=1234
       - ALLOWED_ORIGINS=https://tools.rknt.de
