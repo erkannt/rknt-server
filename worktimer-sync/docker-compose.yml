@@ -1,0 +1,23 @@
+version: "3"
+services:
+  rechenschaftspflicht:
+    image: rknt/worktimer-sync
+    environment:
+      - PORT=1234
+      - ALLOWED_ORIGINS=https://tools.rknt.de
+      # Abuse limits (sane defaults shown; tune per deployment).
+      - MAX_ROOMS=100
+      - MAX_MESSAGE_BYTES=1000000
+      - MAX_DOC_BYTES=5000000
+    networks:
+      - traefik
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.worktimer-sync.rule=Host(`worktimer-sync.rknt.de`)"
+      - "traefik.http.services.worktimer-sync.loadbalancer.server.port=1234"
+      - "traefik.http.routers.worktimer-sync.entrypoints=websecure"
+      - "traefik.http.routers.worktimer-sync.tls.certresolver=myresolver"
+    restart: unless-stopped
+networks:
+  traefik:
+    external: true
