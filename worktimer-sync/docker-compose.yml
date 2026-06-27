@@ -1,7 +1,7 @@
 version: "3"
 services:
   worktimer-sync:
-    image: rknt/worktimer-sync:20260627134009-ea4a1a6-dirty
+    image: rknt/worktimer-sync:20260627134146-4e873e1
     environment:
       - PORT=1234
       - ALLOWED_ORIGINS=https://tools.rknt.de
