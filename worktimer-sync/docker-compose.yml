@@ -1,7 +1,7 @@
 version: "3"
 services:
   rechenschaftspflicht:
-    image: rknt/worktimer-sync-server
+    image: rknt/worktimer-sync-server:20260627131754-c45c70c-dirty
     environment:
       - PORT=1234
       - ALLOWED_ORIGINS=https://tools.rknt.de
