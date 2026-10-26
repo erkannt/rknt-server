@@ -2,7 +2,7 @@ version: "3.7"
 
 services:
   gollum:
-    image: gollumwiki/gollum:v5.3.0@sha256:1c88bb20bb599f59084881e1c1e30705665e8c01a40b5b6738b4ff923b033f41
+    image: gollumwiki/gollum:6.1.0@sha256:05f23e49ba475169ef5d42356428d9762e88c94396fd747b0825bddb628141de
     restart: unless-stopped
     volumes:
       - ./gollum-config/gitconfig:/home/www-data/.gitconfig
