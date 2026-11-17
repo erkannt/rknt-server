@@ -1,7 +1,7 @@
 version: "3.7"
 services:
   picoshare:
-    image: mtlynch/picoshare@sha256:36eda700181a517bc8d32f630416ed751fd78c2805a270ff23e85190ecef817c
+    image: mtlynch/picoshare@sha256:4f4bd8e09aaa4649ec7904e12a395ae437e4aad3b20fba9c53be387d34cd779f
     volumes:
       - /var/volumes/picoshare:/data
     environment:
