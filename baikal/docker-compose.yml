@@ -3,7 +3,7 @@ version: '3'
 services:
 
   baikal:
-    image: ghcr.io/aalmenar/baikal:nginx@sha256:329ade88f83e2017e37715b4f649f51ddee0c0425d6940b8c2542ce04a0873dd
+    image: ghcr.io/aalmenar/baikal:nginx@sha256:6bc151b961379c77acbb2ec5b35bd80f9d5abdc8d538f79ccf8f6e0f44e4b959
     volumes:
       - /var/volumes/baikal/config:/var/www/baikal/config
       - /var/volumes/baikal/data:/var/www/baikal/Specific
